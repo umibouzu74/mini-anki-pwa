@@ -1,10 +1,18 @@
 {
-  "name": "Mini Anki",
-  "short_name": "MiniAnki",
+  "name": "Mini Anki Deluxe",
+  "short_name": "AnkiDX",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#ffffff",
+
+  // アプリ起動時に背景として使われる色
+  "background_color": "#333333",
+  // アプリ起動後に画面上部（ステータスバーなど）の色として使われる色（Android など）
+  "theme_color": "#FF6B6B",
+  
+  // アプリの説明文
+  "description": "A modern, dark-themed flashcard app",
+  
+  // ホーム画面やスプラッシュ画面に使用されるアイコン
   "icons": [
     {
       "src": "icon-192.png",
