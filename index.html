@@ -2,112 +2,199 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <title>Mini Anki (3-state Tap)</title>
-  <!-- スマホ向けに拡大縮小を適切にするための設定 -->
+  <title>Mini Anki Deluxe</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- PWA用マニフェストファイルを読み込む -->
+  <!-- PWA用マニフェストファイル -->
   <link rel="manifest" href="manifest.json">
-  <!-- アイコンがある場合はこういったリンクを貼る -->
-  <link rel="icon" sizes="192x192" href="icon-192.png">
 
+  <!-- ダークテーマのベースCSS -->
   <style>
+    /* 背景をダークに、文字を薄い色に */
     body {
+      background: #2b2b2b;
+      color: #f0f0f0;
       font-family: sans-serif;
       line-height: 1.6;
       margin: 2em;
+      transition: background 0.3s, color 0.3s;
     }
+
+    h1 {
+      text-align: center;
+      color: #ff6b6b;
+    }
+
+    p {
+      text-align: center;
+      margin-bottom: 2em;
+    }
+
     .card-container {
       max-width: 700px;
       margin: 0 auto 2em;
-      border: 1px solid #ccc;
+      border: 1px solid #444;
       border-radius: 6px;
       padding: 1em 1.5em;
-      box-shadow: 2px 2px 6px #ddd;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+      background: #3a3a3a;
       cursor: pointer;
+      transition: background 0.3s;
     }
+
     .card-number {
       font-weight: bold;
       font-size: 1.1em;
-      color: #333;
+      color: #ff6b6b;
       margin-bottom: 0.3em;
     }
+
     .jp-text {
       margin-bottom: 0.8em;
-      color: #111;
+      color: #f9f9f9;
     }
+
     .hint {
-      color: #555;
+      color: #cccccc;
       display: none; /* 初期表示：非表示 */
       margin-bottom: 0.8em;
     }
+
     .full {
       font-weight: bold;
-      color: #444;
+      color: #ffffff;
       display: none; /* 初期表示：非表示 */
       white-space: pre-wrap; /* 複数行の場合のため */
     }
-    /* 簡易的にタップ可視化のための hover/active */
+
+    /* カードをタップ or マウスオーバーしたときのスタイル */
     .card-container:hover {
-      background-color: #f8f8f8;
+      background-color: #4a4a4a;
     }
+
     .card-container:active {
-      background-color: #eee;
+      background-color: #555;
     }
   </style>
 </head>
 <body>
+  <h1>Mini Anki Deluxe</h1>
+  <p>カードをタップすると「ヒント → 完全文 → 最初に戻る」と状態が変わります。</p>
 
-<h1>Mini Anki (3-state Tap)</h1>
-<p>カードをタップすると「ヒント → 完全文 → 最初に戻る」と状態が変わります。<br>
-日本語は常に表示しています。</p>
-
+  <!-- カード001 -->
 <div class="card-container" onclick="cycleState(0)">
   <div class="card-number">001</div>
   <div class="jp-text">
     理屈の上では週休3日は夢のような話に聞こえるが、少なくとも僕には悪夢である。
   </div>
   <div class="hint" id="hint-0">
-    I- th----, a four-day w---week -----s ---- a ----- c--- ----.  But i- -------, it is a ---------, -- ----- for me.
+    I- th----, a four-day w---week -----s ---- a ----- c--- ----. But i- -------, it is a ---------, -- ----- for me.
   </div>
   <div class="full" id="full-0">
     In theory, a four-day workweek sounds like a dream come true. But in reality, it is a nightmare, at least for me.
   </div>
 </div>
 
-<!-- (カード 002〜005 省略) -->
-<!-- ここにあなたのカードをコピペしてください -->
+  <!-- ★追加: カード002 -->
+<div class="card-container" onclick="cycleState(1)">
+  <div class="card-number">002</div>
+  <div class="jp-text">
+    キウイは食物繊維、カリウム、ビタミンCが豊富である。だからキウイを食べることで消化が改善されるのだ。
+  </div>
+  <div class="hint" id="hint-1">
+    K---s are ---- -- f----, potassium, and ------- C, wh--- is --- eat--- them i------- your d--------.
+  </div>
+  <div class="full" id="full-1">
+    Kiwis are rich in fiber, potassium, and vitamin C, which is why eating them improves your digestion.
+  </div>
+</div>
 
+  <!-- ★追加: カード003 -->
+  <div class="card-container" onclick="cycleState(2)">
+    <div class="card-number">003</div>
+    <div class="jp-text">
+その効能と副作用が十分に分かっていないので、その新薬が臨床試験にかけられるのはだいぶ先で、一般向けに市販されるのは言うまでもなくさらに先だ。
+</div>
+    <div class="hint" id="hint-2">
+It will -- - wh--- ------ the ---- is ----ed in c----al -----s, ---- ---- mar----- -- the g------ p---------, s---- its e-----s and ---- e-----s --- sti-- p---ly under-----.
+</div>
+    <div class="full" id="full-2">
+It will be a while before the drug is tested in clinical trials, much less marketed to the general population, since its effects and side effects are still poorly understood.
+</div>
+  </div>
+
+  <!-- ★追加: カード004 -->
+  <div class="card-container" onclick="cycleState(3)">
+    <div class="card-number">004</div>
+    <div class="jp-text">
+2つの武装軍の間で行われた血みどろの戦争は前例を見ない数の一般市民の犠牲者をたった2週間という期間で出してしまった。1人の指揮官は自分たちの土地は戦ってでも守り抜く価値があるものだと語った。
+</div>
+    <div class="hint" id="hint-3">
+The bloody --- ---ed b------ the two ---ed -----s -----d an un----------- number – civ----- ------ties -n the s---- o- two weeks. One gen---- said the -----tory --- ----- f------- ---.
+</div>
+    <div class="full" id="full-3">
+The bloody war waged between the two armed forces caused an unprecedented number of civilian casualties in the space of two weeks. One general said the territory was worth fighting for.
+</div>
+  </div>
+
+  <!-- ★追加: カード005 -->
+  <div class="card-container" onclick="cycleState(4)">
+    <div class="card-number">005</div>
+    <div class="jp-text">
+あまりにその小説にはまってしまって全然仕事が手に付かなかったよ。そういえば、Joseも途中でやめられないと言ってたな。
+</div>
+    <div class="hint" id="hint-4">
+I --- -- ab------ in the ----- ---- I couldn't g-- d--- -- work. ---- -- ----- o- it, Jose said he couldn't p-- i- d---, ------.
+</div>
+    <div class="full" id="full-4">
+I was so absorbed in the novel that I couldn't get down to work. Come to think of it, Jose said he couldn't put it down, either.
+</div>
+  </div>
+
+  <script>
+    // state管理配列。カードが5枚なら5つ必要
+    const states = [0, 0, 0, 0, 0];
+
+    function cycleState(index) {
+      states[index] = (states[index] + 1) % 3;
+      const hintElem = document.getElementById(`hint-${index}`);
+      const fullElem = document.getElementById(`full-${index}`);
+
+      if (states[index] === 0) {
+        hintElem.style.display = 'none';
+        fullElem.style.display = 'none';
+      } else if (states[index] === 1) {
+        hintElem.style.display = 'block';
+        fullElem.style.display = 'none';
+      } else if (states[index] === 2) {
+        hintElem.style.display = 'none';
+        fullElem.style.display = 'block';
+      }
+    }
+  </script>
+</body>
 <script>
   // 各カードの状態を保持する配列：0=初期非表示,1=ヒント表示,2=完全文表示
   const states = [0, 0, 0, 0, 0];
 
-  /**
-   * カードをタップしたときの処理。
-   * 0 → 1 → 2 → 0 → ... と循環させる
-   */
   function cycleState(index) {
-    // 次の状態に進める
     states[index] = (states[index] + 1) % 3;
     const hintElem = document.getElementById(`hint-${index}`);
     const fullElem = document.getElementById(`full-${index}`);
 
     if (states[index] === 0) {
-      // 両方非表示（初期状態）
       hintElem.style.display = 'none';
       fullElem.style.display = 'none';
     } else if (states[index] === 1) {
-      // ヒント表示
       hintElem.style.display = 'block';
       fullElem.style.display = 'none';
     } else if (states[index] === 2) {
-      // 完全文表示
       hintElem.style.display = 'none';
       fullElem.style.display = 'block';
     }
   }
 
-  // 画面読み込み時にService Workerを登録 (対応ブラウザのみ)
+  // Service Worker 登録（PWA用）
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
       navigator.serviceWorker.register('service-worker.js')
@@ -120,6 +207,5 @@
     });
   }
 </script>
-
 </body>
 </html>
