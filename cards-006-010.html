@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mini Anki Deluxe - 001~005</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- PWA用マニフェストファイル -->
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    body {
+      background: #2b2b2b;
+      color: #f0f0f0;
+      font-family: sans-serif;
+      line-height: 1.6;
+      margin: 2em;
+      transition: background 0.3s, color 0.3s;
+    }
+    h1 {
+      text-align: center;
+      color: #ff6b6b;
+    }
+    p {
+      text-align: center;
+      margin-bottom: 2em;
+    }
+    .card-container {
+      max-width: 700px;
+      margin: 0 auto 2em;
+      border: 1px solid #444;
+      border-radius: 6px;
+      padding: 1em 1.5em;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+      background: #3a3a3a;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .card-number {
+      font-weight: bold;
+      font-size: 1.1em;
+      color: #ff6b6b;
+      margin-bottom: 0.3em;
+    }
+    .jp-text {
+      margin-bottom: 0.8em;
+      color: #f9f9f9;
+    }
+    .hint {
+      color: #cccccc;
+      display: none;
+      margin-bottom: 0.8em;
+    }
+    .full {
+      font-weight: bold;
+      color: #ffffff;
+      display: none;
+      white-space: pre-wrap;
+    }
+    .card-container:hover {
+      background-color: #4a4a4a;
+    }
+    .card-container:active {
+      background-color: #555;
+    }
+    /* 戻るボタン */
+    .nav-back {
+      display: block;
+      text-align: center;
+      margin: 2em auto;
+      color: #ff6b6b;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cards 006 - 010</h1>
+  <p>カードをタップすると「ヒント → 完全文 → 最初に戻る」と状態が変わります。</p>
+
+  <!-- 戻るボタン -->
+  <a class="nav-back" href="index.html">← ホームへ戻る</a>
+
+  <!-- カード006 -->
+  <div class="card-container" onclick="cycleState(0)">
+    <div class="card-number">006</div>
+    <div class="jp-text">
+私たちの議論から難しいことで悪名高いその哲学的問いに重要な洞察が今にも得られそうだったその時、スマホの緊急地震速報が鳴り思考の流れが途切れてしまった。
+    </div>
+    <div class="hint" id="hint-0">
+Our d--------- s----- -- -- y----ing some important i------s i--- the no-------ly d-------- ph----------- question, wh-- the sound o- an e--------- early w------ f--- everyone's smartphones i--------ed our tr--- o- th-----.    </div>
+    <div class="full" id="full-0">
+Our discussion seemed to be yielding some important insights into the notoriously difficult philosophical question, when the sound of an earthquake early warning from everyone's smartphones interrupted our train of thought.    </div>
+  </div>
+
+  <!-- カード007 -->
+  <div class="card-container" onclick="cycleState(1)">
+    <div class="card-number">007</div>
+    <div class="jp-text">
+猫の毛色が猫の個性を知る手掛かりになるというある「理論」がSNSで急速に広まっている。例えば、もしTikTokを信じるなら、チャトラはおばかさん、といった具合だ。しかし、私たちはそういった主張は話半分に聞くべきだ。    </div>
+    <div class="hint" id="hint-1">
+A "th----" is --ing v---- o- so---- ----- that cats' --- colors are a c--- t- their p----------. For i-------, orange cats are d---, i- TikTok is anything -- -- --. But we ---- to t--- ---- c----s w--- a ----- of s---.    </div>
+    <div class="full" id="full-1">
+A "theory" is going viral on social media that cats' fur colors are a clue to their personality. For instance, orange cats are dumb, if TikTok is anything to go by. But we have to take such claims with a grain of salt.    </div>
+  </div>
+
+  <!-- カード008 -->
+  <div class="card-container" onclick="cycleState(2)">
+    <div class="card-number">008</div>
+    <div class="jp-text">
+悲劇的な銃乱射事件がアメリカで起きるたび、銃を一切禁止してしまえばよいと思いがちだ。しかし、ことはそう単純ではない。    </div>
+    <div class="hint" id="hint-2">
+Wh------ a t----- m--- -----ing ----s ----- -n the United States, i- -- easy -- th--- that an out----- --- -n ---s will s---- this i----. H------, it isn't -- ------ -- that.    </div>
+    <div class="full" id="full-2">
+Whenever a tragic mass shooting takes place in the United States, it is easy to think that an outright ban on guns will solve this issue. However, it isn't as simple as that.    </div>
+  </div>
+
+  <!-- カード009 -->
+  <div class="card-container" onclick="cycleState(3)">
+    <div class="card-number">009</div>
+    <div class="jp-text">
+心理学の中心的なテーマとして、生まれか育ちかの問題がある。これを二者択一の問題と解釈することは的外れであるし、時代遅れである。ある心理学者はこのように述べている：生まれと育ちは関わり合っており、両者をきっちり分けることは実質的に不可能である。
+    </div>
+    <div class="hint" id="hint-3">
+A- the ----- o- psy------- i- the i---- o- nature v----- -------. Inter------- this -- an ei---r-or m----- is --- the ---- and --- o- ----. A psy--------- p-- -- th-- way: nature and ------- inter---- and --- v------ly im-------- -o ----ly s-------.      
+    </div>
+    <div class="full" id="full-3">
+At the heart of psychology is the issue of nature versus nurture. Interpreting this as an either-or matter is off the mark and out of date. A psychologist put it this way: nature and nurture intersect and are virtually impossible to neatly separate.      
+    </div>
+  </div>
+
+  <!-- カード010 -->
+  <div class="card-container" onclick="cycleState(4)">
+    <div class="card-number">010</div>
+    <div class="jp-text">
+その調査では、回答者のおよそ80% (2005年時の50%から増えている) が英語が堪能だと将来仕事を見つけるのに有利だろうと答えた。    </div>
+    <div class="hint" id="hint-4">
+-n the s-----, a-----d 80 per---- -- the r---------s, u- f--- 50 per---- -n 2005, a-----ed that h----g a g--- c------ o- English w---- give them an e--- -- finding a j-- -- the future.    </div>
+    <div class="full" id="full-4">
+In the survey, around 80 percent of the respondents, up from 50 percent in 2005, answered that having a good command of English would give them an edge in finding a job in the future.    </div>
+  </div>
+
+  <!-- 戻るボタン (ページ下部にも配置) -->
+  <a class="nav-back" href="index.html">← ホームへ戻る</a>
+
+  <script>
+    // カードの枚数に合わせて配列を定義
+    const states = [0, 0, 0, 0, 0];
+
+    function cycleState(index) {
+      states[index] = (states[index] + 1) % 3;
+      const hintElem = document.getElementById(`hint-${index}`);
+      const fullElem = document.getElementById(`full-${index}`);
+
+      if (states[index] === 0) {
+        hintElem.style.display = 'none';
+        fullElem.style.display = 'none';
+      } else if (states[index] === 1) {
+        hintElem.style.display = 'block';
+        fullElem.style.display = 'none';
+      } else if (states[index] === 2) {
+        hintElem.style.display = 'none';
+        fullElem.style.display = 'block';
+      }
+    }
+
+    // PWA: Service Worker 登録
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(function(registration) {
+            console.log('Service Worker registered with scope:', registration.scope);
+          })
+          .catch(function(error) {
+            console.log('Service Worker registration failed:', error);
+          });
+      });
+    }
+  </script>
+</body>
+</html>
